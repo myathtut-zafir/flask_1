@@ -4,11 +4,11 @@ auth=Blueprint("auth",__name__)
 
 @auth.route("/signup")
 def signup():
-    return "Sign up"
+    return  render_template('signup.html')
 
 @auth.route("/login")
 def login():
-    return "Login"
+    return  render_template('login.html')
 
 def logout():
     return "Logout"
