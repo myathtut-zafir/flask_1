@@ -84,6 +84,11 @@
           
         </ul>
         <form class="form-inline my-2 my-lg-0">
+          {% if current_user.is_authenticated %}
+          <a href="#" class="btn btn-outline-primary" role="button"
+            >Add New Workout</a
+          >
+          {% endif %} {% if not current_user.is_authenticated %}
           <a
             href="{{ url_for('auth.signup') }}"
             class="btn btn-outline-primary"
@@ -97,6 +102,15 @@
             style="margin-left: 4px;"
             >Login</a
           >
+          {% endif %} {% if current_user.is_authenticated %}
+          <a
+            href="{{ url_for('auth.logout') }}"
+            class="btn btn-outline-danger"
+            role="button"
+            style="margin-left: 4px;"
+            >Log Out</a
+          >
+          {% endif %}
         </form>
       </div>
     </nav>
